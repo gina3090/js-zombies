@@ -119,7 +119,9 @@ class Player {
  *
  * @name checkPack
  */
-
+checkPack() {
+  console.log(this.getPack().join(', '));
+}
 
 /**
  * Player Class Method => takeItem(item)
@@ -139,8 +141,8 @@ class Player {
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
 takeItem(item) {
-  if(this._pack.length <= 2) {
-    this._pack.push(item);
+  if(this.getPack().length <= 2) {
+    this.getPack().push(item);
     console.log(Player.name + ' picked up a ' + item + '.');
     return true;
   } else {
@@ -175,8 +177,8 @@ takeItem(item) {
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 discardItem(item) {
-  if(this._pack.indexOf(item) !== -1){
-    this._pack.splice(this._pack.indexOf(item), 1);
+  if(this.getPack().indexOf(item) !== -1){
+    this.getPack().splice(this.getPack().indexOf(item), 1);
     console.log(Player.name + ' discarded ' + item + '.');
     return true;
   } else {
