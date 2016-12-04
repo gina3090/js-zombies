@@ -144,7 +144,7 @@ takeItem(item) {
     console.log(Player.name + ' picked up a ' + item + '.');
     return true;
   } else {
-    console.log(Player.name + '\'s pack is full so ' + item + ' cannot be stored.');
+    console.log('The pack is full so ' + item + ' cannot be stored.');
     return false;
   }
 }
@@ -174,7 +174,16 @@ takeItem(item) {
  * @param {Item/Weapon/Food} item   The item to discard.
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
-
+discardItem(item) {
+  if(this._pack.indexOf(item) !== -1){
+    this._pack.splice(this._pack.indexOf(item), 1);
+    console.log(Player.name + ' discarded ' + item + '.');
+    return true;
+  } else {
+    console.log('Nothing was discarded since ' + item + ' could not be found.');
+    return false;
+  }
+}
 
 /**
  * Player Class Method => equip(itemToEquip)
