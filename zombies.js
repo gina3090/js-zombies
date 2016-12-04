@@ -88,7 +88,25 @@ class Food extends Item {
  * @property {method} getPack              Returns private variable `pack`.
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
+class Player {
+  constructor(name, health, strength, speed) {
+    this._pack = [];
+    this._maxHealth = health;
+    this.name = name;
+    this.health = health;
+    this.strength = strength;
+    this.speed = speed;
+    this.isAlive = true;
+    this.equipped = false;
+  }
 
+  getPack() {
+    return this._pack;
+  }
+
+  getMaxHealth() {
+    return this._maxHealth;
+  }
 
 /**
  * Player Class Method => checkPack()
@@ -218,6 +236,8 @@ class Food extends Item {
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
 
+
+}
 
 /**
  * Class => Zombie(health, strength, speed)
