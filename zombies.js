@@ -7,7 +7,11 @@
  * @param {string} name     The item's name.
  * @property {string} name
  */
-
+class Item {
+  constructor(name) {
+    this.name = name;
+  }
+}
 
 /**
  * Class => Weapon(name, damage)
@@ -24,6 +28,7 @@
  * @param {number} damage   The weapon's damage.
  * @property {number} damage
  */
+
 
 
 /**
