@@ -141,12 +141,12 @@ checkPack() {
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
 takeItem(item) {
-  if(this.getPack().length <= 2) {
-    this.getPack().push(item);
-    console.log(Player.name + ' picked up a ' + item + '.');
+  if(this._pack.length <= 2) {
+    this._pack.push(item);
+    console.log(this.name + ' picked up a ' + item.name + '.');
     return true;
   } else {
-    console.log('The pack is full so ' + item + ' cannot be stored.');
+    console.log('The pack is full so ' + item.name + ' cannot be stored.');
     return false;
   }
 }
@@ -177,12 +177,12 @@ takeItem(item) {
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 discardItem(item) {
-  if(this.getPack().indexOf(item) !== -1){
-    this.getPack().splice(this.getPack().indexOf(item), 1);
-    console.log(Player.name + ' discarded ' + item + '.');
+  if(this._pack.indexOf(item) !== -1) {
+    this._pack.splice(this.getPack().indexOf(item), 1);
+    console.log(this.name + ' discarded a ' + item.name + '.');
     return true;
   } else {
-    console.log('Nothing was discarded since ' + item + ' could not be found.');
+    console.log('Nothing was discarded since ' + item.name + ' could not be found.');
     return false;
   }
 }
@@ -206,7 +206,17 @@ discardItem(item) {
  * @name equip
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
-
+equip(itemToEquip) {
+  if(itemToEquip instanceof Weapon && this._pack.indexOf(itemToEquip) > -1) {
+    if(this.equipped === true) {
+      this.equipped = itemToEquip;
+      this._pack.splice(this._pack.indexOf(itemToEquip), 1); 
+    } else {
+      this._pack.splice(this._pack.indexOf(itemToEquip), 1, this.equipped);
+      this.equipped = itemToEquip;
+    }
+  }
+}
 
 /**
  * Player Class Method => eat(itemToEat)
@@ -291,12 +301,10 @@ discardItem(item) {
  * @param {number} speed            The zombie's speed.
  */
 
-
 /**
  * FastZombie Extends Zombie Class
  * -----------------------------
  */
-
 
 
 /**
@@ -314,12 +322,10 @@ discardItem(item) {
  * @param {number} speed            The zombie's speed.
  */
 
-
 /**
  * StrongZombie Extends Zombie Class
  * -----------------------------
  */
-
 
 
 /**
@@ -337,12 +343,10 @@ discardItem(item) {
  * @param {number} speed            The zombie's speed.
  */
 
-
 /**
  * RangedZombie Extends Zombie Class
  * -----------------------------
  */
-
 
 
 /**
@@ -360,13 +364,10 @@ discardItem(item) {
  * @param {number} speed            The zombie's speed.
  */
 
-
 /**
  * ExplodingZombie Extends Zombie Class
  * -----------------------------
  */
-
-
 
 
 /**
