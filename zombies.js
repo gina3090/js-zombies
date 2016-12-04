@@ -280,7 +280,15 @@ useItem(item) {
  * @name equippedWith
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
-
+equippedWith() {
+  if(this.equipped !== false) {
+    console.log(this.name + ' is equipped with a ' + this.equipped.name);
+    return this.equipped.name;
+  } else {
+    console.log('Nothing is equipped.');
+    return false;
+  }
+}
 
 }
 
@@ -299,7 +307,15 @@ useItem(item) {
  * @property {number} speed
  * @property {boolean} isAlive      Default value should be `true`.
  */
-
+class Zombie {
+  constructor(health, strength, speed) {
+    this._maxHealth = health;
+    this.health = health;
+    this.strength = strength;
+    this.speed = speed;
+    this.isAlive = true;
+  }
+}
 
 /**
  * Class => FastZombie(health, strength, speed)
@@ -320,7 +336,11 @@ useItem(item) {
  * FastZombie Extends Zombie Class
  * -----------------------------
  */
-
+class FastZombie extends Zombie {
+  constructor(health, strength, speed) {
+    super(health, strength, speed);
+  }
+}
 
 /**
  * Class => StrongZombie(health, strength, speed)
@@ -341,7 +361,11 @@ useItem(item) {
  * StrongZombie Extends Zombie Class
  * -----------------------------
  */
-
+class StrongZombie extends Zombie {
+  constructor(health, strength, speed) {
+    super(health, strength, speed);
+  }
+}
 
 /**
  * Class => RangedZombie(health, strength, speed)
@@ -362,7 +386,11 @@ useItem(item) {
  * RangedZombie Extends Zombie Class
  * -----------------------------
  */
-
+class RangedZombie extends Zombie {
+  constructor(health, strength, speed) {
+    super(health, strength, speed);
+  }
+}
 
 /**
  * Class => ExplodingZombie(health, strength, speed)
@@ -383,7 +411,11 @@ useItem(item) {
  * ExplodingZombie Extends Zombie Class
  * -----------------------------
  */
-
+class ExplodingZombie extends Zombie {
+  constructor(health, strength, speed) {
+    super(health, strength, speed);
+  }
+}
 
 /**
  * Sample run.
