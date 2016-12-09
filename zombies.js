@@ -13,10 +13,6 @@ class Item {
   }
 }
 
-module.exports = {
-  item: Item
-};
-
 /**
  * Class => Weapon(name, damage)
  * -----------------------------
@@ -38,8 +34,17 @@ module.exports = {
  * Weapon Extends Item Class
  * -----------------------------
  */
+class Weapon extends Item{
+  constructor(name, damage) {
+    super(name);
+    this.damage = damage;
+  }
+}
 
-
+module.exports = {
+  item: Item,
+  weapon: Weapon
+};
 
 /**
  * Class => Food(name, energy)
