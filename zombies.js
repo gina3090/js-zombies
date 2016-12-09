@@ -7,7 +7,15 @@
  * @param {string} name     The item's name.
  * @property {string} name
  */
+class Item {
+  constructor(name) {
+    this.name = name;
+  }
+}
 
+module.exports = {
+  item: Item
+};
 
 /**
  * Class => Weapon(name, damage)
