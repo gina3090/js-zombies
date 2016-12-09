@@ -35,3 +35,21 @@ describe('Weapon', () => {
   });
 
 });
+
+describe('Food', () => {
+
+  let food = new Zombies.food;
+
+  it('should be a class', () => {
+    food.should.be.a.function;
+  });
+
+  it('should have an energy property', () => {
+    food.should.have.property('energy');
+  });
+
+  it('should extend the item class', () => {
+    food.should.be.an.instanceof(Zombies.item);
+  });
+
+});
