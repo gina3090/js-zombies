@@ -34,17 +34,12 @@ class Item {
  * Weapon Extends Item Class
  * -----------------------------
  */
-class Weapon extends Item{
+class Weapon extends Item {
   constructor(name, damage) {
     super(name);
     this.damage = damage;
   }
 }
-
-module.exports = {
-  item: Item,
-  weapon: Weapon
-};
 
 /**
  * Class => Food(name, energy)
@@ -67,8 +62,18 @@ module.exports = {
  * Food Extends Item Class
  * -----------------------------
  */
+class Food extends Item {
+  constructor(name, energy) {
+    super(name);
+    this.energy = energy;
+  }
+}
 
-
+module.exports = {
+  item: Item,
+  weapon: Weapon,
+  food: Food
+};
 
 /**
  * Class => Player(name, health, strength, speed)
